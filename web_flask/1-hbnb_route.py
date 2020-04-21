@@ -14,7 +14,7 @@ def print_hello_flask():
 @app.route('/hbnb', strict_slashes=False)
 def print_hbnb():
     """ print in display "Hello HBNB!" """
-    return "Hello HBNB!"
+    return "HBNB"
 
 
 if __name__ == '__main__':
