@@ -21,7 +21,7 @@ def print_hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def print_c_is_fun(text):
     """ print in display "Hello HBNB!" """
-    return "%s Hello HBNB!" % text
+    return "C %s" % text.replace('_', ' ')
 
 
 @app.route('/python/', strict_slashes=False)
