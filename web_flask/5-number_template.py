@@ -41,7 +41,7 @@ def print_its_a_number(n):
 def print_number_template(n):
     """ display “n is a number” only if n is an integer """
     return render_template('5-number.html', n=n)
-    
+
 
 if __name__ == '__main__':
     """ Web app must be listening on 0.0.0.0 port 5000 """
