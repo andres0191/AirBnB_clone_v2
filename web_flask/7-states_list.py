@@ -2,52 +2,28 @@
 """ Write a script that starts a Flask web application """
 from flask import Flask
 from flask import render_template
+from models import storage
+from models.state import State
 import sys
 
 app = Flask(__name__)
 
 
-@app.route('/', strict_slashes=False)
-def print_hello_flask():
-    """ print in display "Hello HBNB!" """
-    return "Hello HBNB!"
+@app.teardown_appcontext()
+def list_of_states():
+    """ Declare a method to handle
+        @app.teardown_appcontext
+    """
+    storage.close()
 
 
-@app.route('/hbnb', strict_slashes=False)
-def print_hbnb():
-    """ print in display "Hello HBNB!" """
-    return "Hello HBNB!"
-
-
-@app.route('/c/<text>', strict_slashes=False)
-def print_c_is_fun(text):
-    """ print in display "Hello HBNB!" """
-    return "C %s" % text.replace('_', ' ')
-
-
-@app.route('/python/', strict_slashes=False)
-@app.route('/python/<text>', strict_slashes=False)
-def print_python_is_cool(text='is_cool'):
-    """ print in display "Hello HBNB!" """
-    return "Python %s" % text.replace('_', ' ')
-
-
-@app.route('/number/<int:n>', strict_slashes=False)
-def print_its_a_number(n):
-    """ display "n is a number" only if n is an integer """
-    return "%d is a number" % n
-
-
-@app.route('/number_template/<int:n>', strict_slashes=False)
-def print_number_template(n):
-    """ display "n is a number" only if n is an integer """
-    return render_template('5-number.html', n=n)
-
-
-@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
-def print_odd_or_even(n):
-    """ display a HTML page only if n is an integer """
-    return render_template('6-number_odd_or_even.html', n=n)
+@app.route('/states_list', strict_slashes=False)
+def print_states_list():
+    """ display a HTML page: (inside the tag BODY) """
+    states_list = []
+    for key, value in states_list.items():
+        states_list.append(value)
+    return render_template('7-states_list.html', states_list=states_list)
 
 
 if __name__ == '__main__':
