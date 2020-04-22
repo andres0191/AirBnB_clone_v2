@@ -12,10 +12,10 @@
                     <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
                 {% endfor %}
             </UL>
-        {% elif id is undefined %}
+        {% elif id is None %}
             <H1>States</H1>
             <UL>
-            {% for state in dict_states | sort(attribute="name") %}
+            {% for state in dict_states.values() | sort(attribute="name") %}
                 <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
             {% endfor %}
             </UL>
