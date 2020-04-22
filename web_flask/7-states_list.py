@@ -10,15 +10,17 @@ app = Flask(__name__)
 
 
 @app.route('/states_list', strict_slashes=False)
-def states_list():
-    """gets states lists"""
-    state_list = storage.all('State')
-    return render_template('7-states_list.html', state_list=state_list)
+def print_states_list():
+    """ display a HTML page: (inside the tag BODY) """
+    list_of_state = storage.all('State')
+    return render_template('7-states_list.html', list_of_state=list_of_state)
 
 
-@app.teardown_appcontext
-def tear_down_db(n):
-    """ sql session closes """
+@app.teardown_appcontext()
+def close_storage():
+    """ Declare a method to handle
+        @app.teardown_appcontext
+    """
     storage.close()
 
 
