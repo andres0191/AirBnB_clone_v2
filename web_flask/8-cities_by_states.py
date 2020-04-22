@@ -10,13 +10,6 @@ import sys
 app = Flask(__name__)
 
 
-@app.route('/states_list', strict_slashes=False)
-def print_states_list():
-    """ display a HTML page: (inside the tag BODY) """
-    list_of_state = storage.all('State')
-    return render_template('7-states_list.html', list_of_state=list_of_state)
-
-
 @app.route('/cities_by_states', strict_slashes=False)
 def print_states_list():
     """ display a HTML page: (inside the tag BODY) """
