@@ -27,4 +27,8 @@ def close_storage(self):
 
 if __name__ == '__main__':
     """ Web app must be listening on 0.0.0.0 port 5000 """
+<<<<<<< HEAD
     app.run(host='0.0.0.0', port=5000)
+=======
+    app.run(host='0.0.0.0', port=5000)
+>>>>>>> 59d7141115504b14d1161f5ee70fc8661fe78a1b
