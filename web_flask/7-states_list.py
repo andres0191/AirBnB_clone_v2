@@ -16,7 +16,7 @@ def print_states_list():
     return render_template('7-states_list.html', list_of_state=list_of_state)
 
 
-@app.teardown_appcontext()
+@app.teardown_appcontext
 def close_storage():
     """ Declare a method to handle
         @app.teardown_appcontext
