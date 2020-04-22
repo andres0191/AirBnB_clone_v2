@@ -15,7 +15,7 @@ def states_and_state():
     """ display a HTML page: (inside the tag BODY) """
     list_states = storage.all('State')
     return render_template('9-states.html', list_states=list_states)
-    
+
 
 @app.route('/states/<int:id>', strict_slashes=False)
 def states_id():
