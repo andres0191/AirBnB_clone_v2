@@ -20,9 +20,7 @@ def list_of_states():
 @app.route('/states_list', strict_slashes=False)
 def print_states_list():
     """ display a HTML page: (inside the tag BODY) """
-    states_list = []
-    for key, value in states_list.items():
-        states_list.append(value)
+    states_list = storage.all('State')
     return render_template('7-states_list.html', states_list=states_list)
 
 
