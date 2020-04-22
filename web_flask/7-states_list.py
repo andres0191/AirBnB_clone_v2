@@ -17,7 +17,7 @@ def print_states_list():
 
 
 @app.teardown_appcontext
-def close_storage():
+def close_storage(self):
     """ Declare a method to handle
         @app.teardown_appcontext
     """
