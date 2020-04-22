@@ -13,8 +13,8 @@ app = Flask(__name__)
 @app.route('/cities_by_states', strict_slashes=False)
 def print_states_list():
     """ display a HTML page: (inside the tag BODY) """
-    list_cities = storage.all('State')
-    return render_template('8-cities_by_states.html', list_cities=list_cities)
+    list_of_state = storage.all('State')
+    return render_template('8-cities_by_states.html', list_of_state=list_of_state)
 
 
 @app.teardown_appcontext
