@@ -9,19 +9,19 @@ import sys
 app = Flask(__name__)
 
 
-@app.teardown_appcontext()
-def list_of_states():
-    """ Declare a method to handle
-        @app.teardown_appcontext
-    """
-    storage.close()
-
-
 @app.route('/states_list', strict_slashes=False)
 def print_states_list():
     """ display a HTML page: (inside the tag BODY) """
     states_list = storage.all('State')
     return render_template('7-states_list.html', states_list=states_list)
+
+
+@app.teardown_appcontext()
+def close_storage():
+    """ Declare a method to handle
+        @app.teardown_appcontext
+    """
+    storage.close()
 
 
 if __name__ == '__main__':
