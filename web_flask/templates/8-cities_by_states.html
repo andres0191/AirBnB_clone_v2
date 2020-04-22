@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 59d7141115504b14d1161f5ee70fc8661fe78a1b
 <!DOCTYPE html>
 <HTML lang="en">
     <HEAD>
@@ -11,14 +7,14 @@
         <H1>States</H1>
         <UL>
             {% for key in list_of_state.values() | sort(attribute='name') %}
-                <LI>{{ key.id }}: <B>{{ key.name }}</B></LI>
+                <LI>{{ key.id }}: <B>{{ key.name }}</B>
             <UL>
-                {% for cities in list_of_cities.states.cities | sort(attribute='name') %}
-                    <LI>{{ cities.id }}: <B>{{ cities.name }}</B></LI>
+                {% for city in list_of_cities.cities | sort(attribute='name') %}
+                    <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
                 {% endfor %}
             </UL>
+        </LI>
+            {% endfor %}
         </UL>
     </BODY>
-
 </HTML>
-
