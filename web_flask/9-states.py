@@ -12,14 +12,14 @@ app = Flask(__name__)
 
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<int:id>', strict_slashes=False)
-def states_id(id = None):
+def states_id(id=None):
     """ display a HTML page: (inside the tag BODY) """
     if id is not None:
         id = 'State.'+id
     cities = storage.all('City')
     dict_states = storage.all('State')
     return render_template('9-states.html',
-                            dict_states=dict_states, id=id, cities=cities)
+                           dict_states=dict_states, id=id, cities=cities)
 
 
 @app.teardown_appcontext
