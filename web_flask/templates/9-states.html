@@ -4,23 +4,23 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        {% if id in dict_states %}
-            <H1>State: {{ state.name }}</H1>
-            <H3>Cities:</H3>
-            <UL>
-                {% for city in dict_states[id].cities | sort(attribute='name') %}
-                    <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-                {% endfor %}
-            </UL>
-        {% elif id is None %}
-            <H1>States</H1>
-            <UL>
-            {% for state in dict_states.values() | sort(attribute="name") %}
-                <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-            {% endfor %}
-            </UL>
-        {% else %}
-            <H1>Not found!</H1>
-        {% endif %}
+      {% if (found == 1) %}
+      <H1>State: {{ state }}</H1>
+      <H3>Cities:</H3>
+      <UL>
+          {% for city in array %}
+          <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+          {% endfor %}
+      </UL>
+      {% elif found == 0 %}
+      <H1>States</H1>
+      <UL>
+      {% for state in array %}
+      <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+      {% endfor %}
+      </UL>
+      {% else %}
+         <H1>Not found!</H1>
+      {% endif %}
     </BODY>
 </HTML>
